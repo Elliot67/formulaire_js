@@ -18,19 +18,19 @@ module.exports = env => {
         devtool = "cheap-module-eval-source-map";
         mode = "development";
         watch = true;
-        filename = "[name]";
+        filename = "[name].js";
         plugins = [
             new HtmlWebpackPlugin({ // Pour ajouter un autre fichier HTML, simplement créer une nouvelle instance de l'objet - https://dev.to/mariorodeghiero/multiple-html-files-with-htmlwebpackplugin-19bf
                 template: "./src/html/connexion.html",
                 filename: "connexion.html",
                 chunks: ['connexion'],
-                inject: false,
+                inject: true,
             }),
             new HtmlWebpackPlugin({
                 template: "./src/html/inscription.html",
                 filename: "inscription.html",
                 chunks: ['inscription'],
-                inject: false,
+                inject: true,
             }),
         ];
         scssModules = [
@@ -60,19 +60,19 @@ module.exports = env => {
         devtool = "cheap-module-eval-source-map";
         mode = "development";
         watch = true;
-        filename = "main.js";
+        filename = "[name].js";
         plugins = [
             new HtmlWebpackPlugin({
                 template: "./src/html/connexion.html",
                 filename: "connexion.html",
                 chunks: ['connexion'],
-                inject: false,
+                inject: true,
             }),
             new HtmlWebpackPlugin({
                 template: "./src/html/inscription.html",
                 filename: "inscription.html",
                 chunks: ['inscription'],
-                inject: false,
+                inject: true,
             }),
         ];
         scssModules = [
@@ -108,22 +108,22 @@ module.exports = env => {
         devtool = false;
         mode = "production";
         watch = false;
-        filename = "main-[contentHash].js";
+        filename = "[name]-[contentHash].js";
         plugins = [
             new HtmlWebpackPlugin({
                 template: "./src/html/connexion.html",
                 filename: "connexion.html",
                 chunks: ['connexion'],
-                inject: false,
+                inject: true,
             }),
             new HtmlWebpackPlugin({
                 template: "./src/html/inscription.html",
                 filename: "inscription.html",
                 chunks: ['inscription'],
-                inject: false,
+                inject: true,
             }),
             new MiniCssExtractPlugin({
-                filename: "style.css"
+                filename: "[name]-[hash].css"
             }),
             new CleanWebpackPlugin(),
         ];
