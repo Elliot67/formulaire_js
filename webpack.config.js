@@ -18,11 +18,20 @@ module.exports = env => {
         devtool = "cheap-module-eval-source-map";
         mode = "development";
         watch = true;
-        filename = "main.js";
+        filename = "[name]";
         plugins = [
             new HtmlWebpackPlugin({ // Pour ajouter un autre fichier HTML, simplement créer une nouvelle instance de l'objet - https://dev.to/mariorodeghiero/multiple-html-files-with-htmlwebpackplugin-19bf
-                template: "./src/template.html"
-            })
+                template: "./src/html/connexion.html",
+                filename: "connexion.html",
+                chunks: ['connexion'],
+                inject: false,
+            }),
+            new HtmlWebpackPlugin({
+                template: "./src/html/inscription.html",
+                filename: "inscription.html",
+                chunks: ['inscription'],
+                inject: false,
+            }),
         ];
         scssModules = [
             "style-loader", // Inject style js in the DOM
@@ -54,7 +63,16 @@ module.exports = env => {
         filename = "main.js";
         plugins = [
             new HtmlWebpackPlugin({
-                template: "./src/template.html"
+                template: "./src/html/connexion.html",
+                filename: "connexion.html",
+                chunks: ['connexion'],
+                inject: false,
+            }),
+            new HtmlWebpackPlugin({
+                template: "./src/html/inscription.html",
+                filename: "inscription.html",
+                chunks: ['inscription'],
+                inject: false,
             }),
         ];
         scssModules = [
@@ -93,7 +111,16 @@ module.exports = env => {
         filename = "main-[contentHash].js";
         plugins = [
             new HtmlWebpackPlugin({
-                template: "./src/template.html"
+                template: "./src/html/connexion.html",
+                filename: "connexion.html",
+                chunks: ['connexion'],
+                inject: false,
+            }),
+            new HtmlWebpackPlugin({
+                template: "./src/html/inscription.html",
+                filename: "inscription.html",
+                chunks: ['inscription'],
+                inject: false,
             }),
             new MiniCssExtractPlugin({
                 filename: "style.css"
@@ -115,7 +142,8 @@ module.exports = env => {
     return {
         mode: mode,
         entry: {
-            main: ["./src/index.js", "./src/index.scss"]
+            connexion: ["./src/js/connexion.js", "./src/scss/connexion.scss"],
+            inscription: ["./src/js/inscription.js", "./src/scss/inscription.scss"],
             //vendor: "./src/vendor.js" Pour créer un fichier séparé consacré aux librairies
         },
         devtool: devtool,
