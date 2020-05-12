@@ -1,5 +1,78 @@
 @import "@src/scss/general";
 
+body {
+	display: flex;
+}
+
 .Connexion {
 	background-color: $blue-dark;
+	margin-top: auto;
+	margin-bottom: auto;
+	display: grid;
+	grid-template-columns: 1fr;
+
+	@include desktop-and-bigger {
+		grid-template-columns: 60% 40%;
+	}
+
+	&-login {
+		background-color: $white;
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+
+		@include tab-and-bigger {
+			padding: 30px;
+		}
+
+		@include desktop-and-bigger {
+			padding: 100px;
+		}
+	}
+
+	&-inscription {
+		background-color: $blue-dark;
+		padding: 10px;
+		display: flex;
+		flex-direction: column;
+		color: $white;
+
+		@include tab-and-bigger {
+			padding: 20px;
+		}
+
+		@include desktop-and-bigger {
+			padding: 30px;
+		}
+	}
+
+	&-title {
+		text-align: center;
+		margin-bottom: 10px;
+
+		@include tab-and-bigger {
+			margin-bottom: 20px;
+		}
+
+		@include desktop-and-bigger {
+			margin-bottom: 40px;
+		}
+	}
+
+	&-paragraph {
+		text-align: center;
+		margin-bottom: 10px;
+
+		@include tab-and-bigger {
+			margin-bottom: 20px;
+		}
+
+		@include desktop-and-bigger {
+			margin-bottom: 40px;
+		}
+	}
+
+	&-inscription * {
+		color: $white;
+	}
 }
