@@ -1,8 +1,9 @@
-import eyeClose from "@assets/eye-close.svg";
-import eyeOpen from "@assets/eye-open.svg";
+import togglePassword from '@src/js/togglePasswordVisibility.js';
 
 const email = "hello@lp.wd";
 const password = "password";
+
+new togglePassword(document.querySelector('#password'), document.querySelector('#passwordToggle'));
 
 const onLoginFormSubmit = e => {
 	e.preventDefault();
@@ -45,22 +46,3 @@ const stopPendingState = () => {
 };
 
 document.querySelector('form').addEventListener('submit', onLoginFormSubmit);
-
-
-// Gestion toggle Password
-let isPasswordVisible = false;
-const togglePassword = () => {
-	const toggle = document.querySelector('#passwordToggle');
-	const input = document.querySelector('#password');
-
-	if (!isPasswordVisible) {
-		isPasswordVisible = true;
-		toggle.setAttribute('src', eyeOpen);
-		input.setAttribute('type', 'text');
-	} else {
-		isPasswordVisible = false;
-		toggle.setAttribute('src', eyeClose);
-		input.setAttribute('type', 'password');
-	}
-}
-document.querySelector('#passwordToggle').addEventListener('click', togglePassword);
