@@ -1,21 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@500&display=swap");
 
 $black: #000000;
-$white: #FFFFFF;
+$white: #ffffff;
 $blue-light: rgb(156, 185, 228);
-$blue-dark: #0D47A1;
+$blue-dark: #0d47a1;
 
 $minTab: 768px;
 $maxTab: 1023px;
 $minDesktop: 1024px;
 
 @mixin font-title {
-	font-family: 'Roboto';
+	font-family: "Roboto";
 	font-weight: 500;
 }
 
 @mixin font-content {
-	font-family: 'Poppins';
+	font-family: "Poppins";
 	font-weight: 300;
 }
 
@@ -43,14 +43,23 @@ $minDesktop: 1024px;
 * {
 	margin: 0;
 	padding: 0;
-	font-size: 16px;
-	line-height: 24px;
+	font-size: 12px;
 	color: $black;
+	box-sizing: border-box;
 	@include font-content;
+
+	@include tab-and-bigger {
+		font-size: 14px;
+	}
+
+	@include desktop-and-bigger {
+		font-size: 16px;
+	}
 }
 
-html, body {
-	height: 100%
+html,
+body {
+	height: 100%;
 }
 
 body {
@@ -60,11 +69,21 @@ body {
 }
 
 .container {
-	max-width: $minDesktop;
+	max-width: calc($minDesktop - 60px);
 	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
 	background-color: $white;
+	margin-right: 30px;
+	margin-left: 30px;
+	@include tab-and-bigger {
+		max-width: calc($minDesktop - 100px);
+		margin-right: 50px;
+		margin-left: 50px;
+	}
+	@include desktop-and-bigger {
+		max-width: $minDesktop;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }
 
 .buttonPrimary {
@@ -77,4 +96,81 @@ body {
 	text-transform: uppercase;
 	display: block;
 	margin: 10px auto;
+	font-size: 12px;
+	height: 29px;
+	display: flex;
+	align-items: center;
+	min-width: 150px;
+
+	@include tab-and-bigger {
+		font-size: 14px;
+	}
+
+	@include desktop-and-bigger {
+		font-size: 16px;
+		height: 34px;
+	}
+}
+
+.buttonSecondary {
+	color: $white;
+	padding: 5px 45px;
+	border: solid $white 1px;
+	border-radius: 50px;
+	cursor: pointer;
+	text-transform: uppercase;
+	display: block;
+	margin: 10px auto;
+	height: 29px;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	min-width: 150px;
+
+	@include tab-and-bigger {
+		font-size: 14px;
+	}
+
+	@include desktop-and-bigger {
+		height: 34px;
+		font-size: 16px;
+	}
+}
+
+.inputGroup {
+	margin-bottom: 10px;
+	position: relative;
+
+	.label {
+		display: block;
+		margin-bottom: 5px;
+	}
+
+	.input {
+		border: solid $black 1px;
+		border-radius: 5px;
+		width: 100%;
+		height: 30px;
+		padding-inline-start: 10px;
+		padding-inline-end: 10px;
+		padding-block-start: 5px;
+		padding-block-end: 5px;
+		outline: none;
+
+		&:focus,
+		&:active {
+			border-color: $blue-dark;
+		}
+	}
+
+	.image + .input {
+		padding-inline-end: 40px;
+	}
+
+	.image {
+		position: absolute;
+		height: 20px;
+		right: 10px;
+		bottom: 5px;
+	}
 }

@@ -1,3 +1,4 @@
+@import "@src/scss/reset";
 @import "@src/scss/general";
 
 body {
@@ -32,31 +33,49 @@ body {
 
 	&-inscription {
 		background-color: $blue-dark;
-		padding: 10px;
+		padding: 20px;
 		display: flex;
 		flex-direction: column;
 		color: $white;
 
 		@include tab-and-bigger {
-			padding: 20px;
+			padding: 30px 20px;
 		}
 
 		@include desktop-and-bigger {
-			padding: 30px;
+			padding: 100px 30px;
 		}
 	}
 
 	&-title {
 		text-align: center;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
+		font-size: 20px;
+		@include font-title;
 
 		@include tab-and-bigger {
-			margin-bottom: 20px;
+			margin-bottom: 30px;
+			font-size: 22px;
 		}
 
 		@include desktop-and-bigger {
 			margin-bottom: 40px;
+			font-size: 24px;
 		}
+	}
+
+	&-form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&-passwordToggle {
+		cursor: pointer;
+	}
+
+	&-passwordForget {
+		margin: auto;
 	}
 
 	&-paragraph {

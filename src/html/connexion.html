@@ -10,15 +10,18 @@
     <main class="container Connexion">
         <div class="Connexion-login">
             <h1 class="Connexion-title">Bonjour</h1>
-            <form>
-                <label for="email">
-                    <input type="email" name="email" id="email">
-                </label>
-                <label for="password">
-                    <input type="password" name="password" id="password">
-                </label>
-                <button class="buttonPrimary" type="submit">se connecter</button>
-                <a class="link" href="connexion.html">Mot de passe oublié</a>
+            <form class="Connexion-form">
+                <div class="inputGroup">
+                    <label class="label" for="email">Email</label>
+                    <input class="input" type="email" name="email" id="email" required>
+                </div>
+                <div class="inputGroup">
+                    <label class="label" for="password">Mot de passe</label>
+                    <img class="image Connexion-passwordToggle" src="../../assets/eye-close.svg" alt=""/>
+                    <input class="input" type="password" name="password" id="password" required>
+                </div>
+                <button class="buttonPrimary" type="submit" id="formButton">se connecter</button>
+                <a class="link Connexion-passwordForget" href="connexion.html">Mot de passe oublié</a>
             </form>
         </div>
         <div class="Connexion-inscription">

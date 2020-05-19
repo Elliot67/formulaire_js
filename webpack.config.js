@@ -168,9 +168,19 @@ module.exports = env => {
                 {
                     test: /\.html$/,
                     use: { // Pour importer les fichiers nécessaires
-                        loader: "html-loader",
+                        loader: "html-loader"
                     }
                 },
+                {
+                    test: /\.(png|jpg|gif|svg)$/,
+                    use: {
+                        loader: 'url-loader',
+                        options: {
+                            limit: '2000',
+                            name: '[name].[ext]'
+                        }
+                    }
+                }
             ],
         },
         devServer: devServer,
