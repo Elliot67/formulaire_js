@@ -24,6 +24,6 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "url-loader": "^4.1.0"
+    "file-loader": "^6.0.0"
   }
 }

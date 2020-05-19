@@ -69,13 +69,13 @@ body {
 }
 
 .container {
-	max-width: calc($minDesktop - 60px);
+	max-width:$minDesktop - 60px;
 	width: 100%;
 	background-color: $white;
 	margin-right: 30px;
 	margin-left: 30px;
 	@include tab-and-bigger {
-		max-width: calc($minDesktop - 100px);
+		max-width: $minDesktop - 100px;
 		margin-right: 50px;
 		margin-left: 50px;
 	}
