@@ -11,18 +11,16 @@ const onLoginFormSubmit = e => {
 	setTimeout(() => {
 		stopPendingState();
 		const data = new FormData(e.target);
-		console.log(data);
 		if (data.get('password') === password && data.get('email') === email) {
 			handleSuccessMessage();
 		} else {
 			handleErrorMessage();
 		}
-	}, 2000);
+	}, 4000);
 };
 
 const handleErrorMessage = () => {
-	console.log('je suis là');
-	//document.querySelector('#errorBlock').classList.remove('hidden');
+	document.querySelector('.errors').classList.remove('hidden');
 };
 
 const handleSuccessMessage = () => {

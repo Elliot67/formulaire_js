@@ -2,8 +2,9 @@
 
 $black: #000000;
 $white: #ffffff;
-$blue-light: rgb(156, 185, 228);
+$blue-light: #9cb9e4;
 $blue-dark: #0d47a1;
+$red: #B30909;
 
 $minTab: 768px;
 $maxTab: 1023px;
@@ -69,7 +70,7 @@ body {
 }
 
 .container {
-	max-width:$minDesktop - 60px;
+	max-width: $minDesktop - 60px;
 	width: 100%;
 	background-color: $white;
 	margin-right: 30px;
@@ -172,5 +173,24 @@ body {
 		height: 20px;
 		right: 10px;
 		bottom: 5px;
+	}
+}
+
+.errors {
+	color: $red;
+	@include font-content;
+	font-size: 10px;
+	margin-block-end: 10px;
+
+	@include tab-and-bigger {
+		font-size: 12px;
+	}
+
+	@include desktop-and-bigger {
+		font-size: 14px;
+	}
+
+	&.hidden {
+		display: none;
 	}
 }
