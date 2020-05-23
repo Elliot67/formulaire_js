@@ -78,6 +78,39 @@ body {
 		margin: auto;
 	}
 
+	#formButton.loading {
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			position: absolute;
+			background-color: $black;
+			background-image: url("../../assets/loader.svg");
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 50px;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: -25px; // pour centrer & compenser le background-size
+
+			animation-name: startLoading;
+			animation-duration: 0.7s;
+			animation-iteration-count: 1;
+			animation-timing-function: ease-out;
+
+			@keyframes startLoading {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
 	&-paragraph {
 		text-align: center;
 		margin-bottom: 10px;

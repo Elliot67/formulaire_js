@@ -31,18 +31,14 @@ const handleSuccessMessage = () => {
 
 const startPendingState = () => {
 	const button = document.querySelector('#formButton');
-	//const loading = document.querySelector('#loading');
-
 	button.setAttribute('disabled', '');
-	//loading.classList.remove('hidden');
+	button.classList.add('loading');
 };
 
 const stopPendingState = () => {
 	const button = document.querySelector('#formButton');
-	//const loading = document.querySelector('#loading');
-
 	button.removeAttribute('disabled');
-	//loading.classList.add('hidden');
+	button.classList.remove('loading');
 };
 
 document.querySelector('form').addEventListener('submit', onLoginFormSubmit);
