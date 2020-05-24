@@ -62,6 +62,13 @@ body {
 			margin-bottom: 40px;
 			font-size: 24px;
 		}
+
+		&.hideMobile {
+			display: none;
+			@include desktop-and-bigger {
+				display: unset;
+			}
+		}
 	}
 
 	&-form {

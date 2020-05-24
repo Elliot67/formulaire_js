@@ -4,7 +4,8 @@ $black: #000000;
 $white: #ffffff;
 $blue-light: #9cb9e4;
 $blue-dark: #0d47a1;
-$red: #B30909;
+$red: #b30909;
+$grey: #4F4F4F;
 
 $minTab: 768px;
 $maxTab: 1023px;
@@ -138,6 +139,14 @@ body {
 	}
 }
 
+.doubleInput {
+	@include tab-and-bigger {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 20px;
+	}
+}
+
 .inputGroup {
 	margin-bottom: 10px;
 	position: relative;
@@ -161,6 +170,16 @@ body {
 		&:focus,
 		&:active {
 			border-color: $blue-dark;
+		}
+	}
+
+	textarea {
+		resize: vertical;
+		min-height: 60px;
+		max-height: 120px;
+
+		@include desktop-and-bigger {
+			min-height: 80px;
 		}
 	}
 

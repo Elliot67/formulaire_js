@@ -1,6 +1,188 @@
 @import "@src/scss/reset";
 @import "@src/scss/general";
 
+body {
+	display: flex;
+}
+
 .Inscription {
 	background-color: $blue-dark;
+	margin-top: auto;
+	margin-bottom: auto;
+	display: grid;
+	grid-template-columns: 1fr;
+
+	@include desktop-and-bigger {
+		grid-template-columns: 40% 60%;
+	}
+
+	&-inscription {
+		background-color: $white;
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+
+		@include tab-and-bigger {
+			padding: 30px;
+		}
+
+		@include desktop-and-bigger {
+			padding: 100px;
+		}
+	}
+
+	&-login {
+		background-color: $blue-dark;
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		color: $white;
+
+		@include tab-and-bigger {
+			padding: 30px 20px;
+		}
+
+		@include desktop-and-bigger {
+			padding: 100px 30px;
+		}
+
+		* {
+			color: $white;
+		}
+	}
+
+	&-paragraph {
+		text-align: center;
+		margin-bottom: 10px;
+
+		@include tab-and-bigger {
+			margin-bottom: 20px;
+		}
+
+		@include desktop-and-bigger {
+			margin-bottom: 40px;
+		}
+	}
+
+	&-title {
+		text-align: center;
+		margin-bottom: 20px;
+		font-size: 20px;
+		@include font-title;
+
+		@include tab-and-bigger {
+			margin-bottom: 30px;
+			font-size: 22px;
+		}
+
+		@include desktop-and-bigger {
+			margin-bottom: 40px;
+			font-size: 24px;
+		}
+
+		&.hideMobile {
+			display: none;
+			@include desktop-and-bigger {
+				display: unset;
+			}
+		}
+	}
+
+	&-form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		&.hiddenForm {
+			display: none;
+		}
+	}
+
+	&-passwordToggle {
+		cursor: pointer;
+	}
+
+	&-passwordForget {
+		margin: auto;
+	}
+
+	&-pagination {
+		display: flex;
+		margin-block-start: 15px;
+	}
+
+	&-page {
+		flex: 1;
+		color: $grey;
+		font-size: 12px;
+		line-height: 20px;
+		position: relative;
+		text-align: center;
+		cursor: pointer;
+		text-transform: uppercase;
+		overflow: hidden;
+		z-index: 1;
+		margin-block-end: 10px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			transform: translateY(calc(100% - 3px));
+			background-color: $blue-light;
+			transition-duration: 0.3s;
+			z-index: -1;
+		}
+
+		&:hover {
+			&::before {
+				transform: translateY(0);
+				opacity: 0.6;
+				transition-timing-function: ease-out;
+			}
+		}
+
+		&.active {
+			color: $black;
+			&::before {
+				background-color: $blue-dark;
+			}
+		}
+	}
+
+	#formButton.loading {
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			position: absolute;
+			background-color: $black;
+			background-image: url("../../assets/loader.svg");
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 50px;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: -25px; // pour centrer & compenser le background-size
+
+			animation-name: startLoading;
+			animation-duration: 0.7s;
+			animation-iteration-count: 1;
+			animation-timing-function: ease-out;
+
+			@keyframes startLoading {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+		}
+	}
 }

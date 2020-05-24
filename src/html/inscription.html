@@ -3,11 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salut mes petites beautés</title>
+    <meta name="Description" content="Page d'inscription de Anywesite">
+    <title>Inscription - Anywebsite</title>
 </head>
 <body>
 
-    <h1>Inscription</h1>
-    
+    <main class="container Inscription">
+        <div class="Inscription-login">
+            <h1 class="Inscription-title hideMobile">Bonjour</h1>
+            <p class="Inscription-paragraph">Vous possédez déjà un compte ?</p>
+            <a class="buttonSecondary" href="connexion.html">se connecter</a>
+        </div>
+        <div class="Inscription-inscription">
+            <h1 class="Inscription-title">Bienvenue</h1>
+            <form class="Inscription-form page1">
+                <div class="doubleInput">
+                    <div class="inputGroup">
+                        <label class="label" for="name">Nom</label>
+                        <input class="input" type="text" placeholder="Astley" name="name" id="name" required>
+                    </div>
+                    <div class="inputGroup">
+                        <label class="label" for="firstName">Prénom</label>
+                        <input class="input" type="text" placeholder="Rick" name="firstName" id="firstName" required>
+                    </div>
+                </div>
+                <div class="inputGroup">
+                    <label class="label" for="email">Email</label>
+                    <input class="input" type="email" placeholder="cool@email.com" name="email" id="email" required>
+                </div>
+                <div class="inputGroup">
+                    <label class="label" for="password">Mot de passe</label>
+                    <img class="image Inscription-passwordToggle" id="passwordToggle" src="../../assets/eye-close.svg" alt=""/>
+                    <input class="input" type="password" name="password" id="password" required>
+                </div>
+                <div class="Inscription-pagination">
+                    <div class="Inscription-page active">Première étape</div>
+                    <div class="Inscription-page" id="toPage2">Deuxième étape</div>
+                </div>
+                <button class="buttonPrimary" type="submit" id="formButtonContinue">continuer</button>
+            </form>
+
+            <form class="Inscription-form page2 hiddenForm">
+                <div class="doubleInput">
+                    <div class="inputGroup">
+                        <label class="label" for="Date">Date de naissance</label>
+                        <input class="input" type="date" name="date" id="date" required>
+                    </div>
+                    <div class="inputGroup">
+                        <label class="label" for="phone">Téléphone</label>
+                        <input class="input" type="tel" name="phone" id="phone" placeholder="06 20 45 15 93" pattern="^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$" required>
+                    </div>
+                </div>
+                <div class="doubleInput">
+                    <div class="inputGroup">
+                        <label class="label" for="city">Ville</label>
+                        <input class="input" type="text" placeholder="Londres" name="city" id="city">
+                    </div>
+                    <div class="inputGroup">
+                        <label class="label" for="address">Adresse</label>
+                        <input class="input" type="text" placeholder="15 rue Roll" name="address" id="address">
+                    </div>
+                </div>
+                <div class="inputGroup">
+                    <label class="label" for="description">Description courte</label>
+                    <textarea class="input" placeholder="Je ne t'abandonnerai jamais, je ne te laisserai jamais tomber, ..." name="description" id="description"></textarea>
+                </div>
+                <div class="Inscription-pagination">
+                    <div class="Inscription-page" id="toPage1">Première étape</div>
+                    <div class="Inscription-page active">Deuxième étape</div>
+                </div>
+                <button class="buttonPrimary" type="submit" id="formButton">s'inscrire</button>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
