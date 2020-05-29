@@ -2,6 +2,14 @@ import togglePassword from '@src/js/togglePasswordVisibility.js';
 
 new togglePassword(document.querySelector('#password'), document.querySelector('#passwordToggle'));
 
+/* Initialisation champs date */
+const date = document.querySelector("#date");
+const today = new Date();
+const month = ((today.getMonth() + 1) < 10 ? '0' : '') + (today.getMonth() + 1);
+const day = (today.getDate() < 10 ? '0' : '') + today.getDate();
+date.setAttribute('max', today.getFullYear() + '-' + month + '-' + day);
+
+/* Gestion de la page */
 let page = 1;
 
 const data = {
@@ -12,7 +20,6 @@ const data = {
 const onLoginFormSubmit = e => {
 	e.preventDefault();
 	if (page === 1) {
-		// TODO: Passer en étape 2
 		data.firstPage = new FormData(e.target);
 		changePage(2);
 	} else {

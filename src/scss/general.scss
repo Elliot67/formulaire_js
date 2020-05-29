@@ -5,7 +5,7 @@ $white: #ffffff;
 $blue-light: #9cb9e4;
 $blue-dark: #0d47a1;
 $red: #b30909;
-$grey: #4F4F4F;
+$grey: #4f4f4f;
 
 $minTab: 768px;
 $maxTab: 1023px;
@@ -67,7 +67,24 @@ body {
 body {
 	margin: 0;
 	padding: 0;
-	background-color: $blue-light;
+	background: linear-gradient(175deg, $blue-light, $blue-dark);
+	background-size: 400% 400%;
+	animation-name: mouvement;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in;
+
+	@keyframes mouvement {
+		0% {
+			background-position: 0% 88%;
+		}
+		50% {
+			background-position: 100% 13%;
+		}
+		100% {
+			background-position: 0% 88%;
+		}
+	}
 }
 
 .container {
