@@ -70,9 +70,13 @@ body {
 	background: linear-gradient(175deg, $blue-light, $blue-dark);
 	background-size: 400% 400%;
 	animation-name: mouvement;
-	animation-duration: 2s;
 	animation-iteration-count: infinite;
 	animation-timing-function: ease-in;
+	animation-duration: 4s;
+
+	@include tab-and-bigger {
+		animation-duration: 3s;
+	}
 
 	@keyframes mouvement {
 		0% {
