@@ -9,7 +9,7 @@ const month = ((today.getMonth() + 1) < 10 ? '0' : '') + (today.getMonth() + 1);
 const day = (today.getDate() < 10 ? '0' : '') + today.getDate();
 date.setAttribute('max', today.getFullYear() + '-' + month + '-' + day);
 
-/* Gestion de la page */
+/* Gestion des pages */
 let page = 1;
 
 const data = {
@@ -41,13 +41,15 @@ const stopPendingState = () => {
 	const button = document.querySelector('#formButton');
 	button.removeAttribute('disabled');
 	button.classList.remove('loading');
+	setTimeout(() => { // le timeout pour le fun uniquemebt
+		window.location.replace(window.location.href);
+	}, 500);
 };
 
-const changePage = page => {
+const changePage = directionPage => {
 	const page1 = document.querySelector('.page1');
 	const page2 = document.querySelector('.page2');
-	console.log('go to page : ', page);
-	if (page === 1) {
+	if (directionPage === 1) {
 		page2.classList.add('hiddenForm');
 		page1.classList.remove('hiddenForm');
 		page = 1;
@@ -59,11 +61,12 @@ const changePage = page => {
 }
 
 const triggerVerification = () => {
-	console.log('trigger errors');
 	document.querySelector('#formButtonContinue').click();
 }
 
 document.querySelector('#toPage2').addEventListener('click', triggerVerification);
 document.querySelector('#toPage1').addEventListener('click', () => changePage(1));
 
-document.querySelector('form').addEventListener('submit', onLoginFormSubmit);
+const forms = document.querySelectorAll('form');
+forms[0].addEventListener('submit', onLoginFormSubmit);
+forms[1].addEventListener('submit', onLoginFormSubmit);
